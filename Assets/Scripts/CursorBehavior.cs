@@ -30,11 +30,11 @@ public class CursorBehavior : MonoBehaviour
     void Update()
     {
         cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = cursorPosition;
+        transform.position = new Vector2(Mathf.Round(cursorPosition.x), Mathf.Round(cursorPosition.y));
 
-        if(tempIcon != null)
+        if (tempIcon != null)
         {
-            tempIcon.transform.position = cursorPosition;
+            tempIcon.transform.position = new Vector2(Mathf.Round(cursorPosition.x), Mathf.Round(cursorPosition.y));
         }
         
 
@@ -131,7 +131,7 @@ public class CursorBehavior : MonoBehaviour
         {
             if (oneIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree)
             {
-                Instantiate(turretOne, cursorPosition, Quaternion.identity);
+                Instantiate(turretOne, tempIcon.transform.position, Quaternion.identity);
                 Destroy(tempIcon);
                 
                 oneIsSelected = false;
@@ -139,7 +139,7 @@ public class CursorBehavior : MonoBehaviour
             }
             if (twoIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree)
             {
-                Instantiate(turretTwo, cursorPosition, Quaternion.identity);
+                Instantiate(turretTwo, tempIcon.transform.position, Quaternion.identity);
                 Destroy(tempIcon);
 
                 twoIsSelected = false;
@@ -147,7 +147,7 @@ public class CursorBehavior : MonoBehaviour
             }
             if (threeIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree)
             {
-                Instantiate(turretThree, cursorPosition, Quaternion.identity);
+                Instantiate(turretThree, tempIcon.transform.position, Quaternion.identity);
                 Destroy(tempIcon);
 
                 threeIsSelected = false;
