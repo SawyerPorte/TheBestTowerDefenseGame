@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
-    [Header("Prefab References")]
-    [SerializeField] GameObject EnemyPrefab;
+    public int lives = 5;
+    public float spawnInterval;
 
-    public float spawnInterval = 2.5f;
+    [Header("Enemy Prefabs")]
+    [SerializeField] GameObject Enemy_N;
+    [SerializeField] GameObject Enemy_F;
+    [SerializeField] GameObject Enemy_L;
+
+
 
     // Start is called before the first frame update
     void Start()

@@ -30,6 +30,8 @@ public class Waypoints : MonoBehaviour
         }
             if(wpIndex == waypoints.Length - 1)
             {
+                //lives--;
+
                 Destroy(gameObject);
             }
     }
