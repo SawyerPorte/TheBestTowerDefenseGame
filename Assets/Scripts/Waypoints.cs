@@ -9,11 +9,11 @@ public class Waypoints : MonoBehaviour
 
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 1f;
-    public int waypointIndex = 0;
+    public int wpIndex = 0;
 
     private void Start()
     {
-        transform.position = waypoints[waypointIndex].transform.position;
+        transform.position = waypoints[wpIndex].transform.position;
     }
 
     private void Update()
@@ -23,12 +23,12 @@ public class Waypoints : MonoBehaviour
 
     void movee()
     {
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
-        if(transform.position == waypoints[waypointIndex].transform.position)
+        transform.position = Vector2.MoveTowards(transform.position, waypoints[wpIndex].transform.position, moveSpeed * Time.deltaTime);
+        if(transform.position == waypoints[wpIndex].transform.position)
         {
-            waypointIndex++;
+            wpIndex++;
         }
-            if(waypointIndex == waypoints.Length - 1)
+            if(wpIndex == waypoints.Length - 1)
             {
                 Destroy(gameObject);
             }
