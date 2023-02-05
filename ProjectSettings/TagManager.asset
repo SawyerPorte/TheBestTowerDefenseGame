@@ -10,6 +10,8 @@ TagManager:
   - TurretThree
   - SpawnPoint
   - Path
+  - Range
+  - Enemy
   layers:
   - Default
   - TransparentFX
