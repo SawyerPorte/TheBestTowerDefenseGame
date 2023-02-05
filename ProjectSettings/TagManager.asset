@@ -8,6 +8,7 @@ TagManager:
   - TurretTwo
   - TurretThree
   - WayPoints
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
