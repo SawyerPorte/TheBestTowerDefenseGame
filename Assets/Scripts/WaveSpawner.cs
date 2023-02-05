@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[System.Serializable]
+public class Enemy
+{
+    public GameObject enemyPrefab;
+    public int cost;
+}
+
+
 public class WaveSpawner : MonoBehaviour
 {
 
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
     private int waveValue;
+    public int waveNum;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
 
     public Transform spawnLocation;
@@ -20,6 +29,8 @@ public class WaveSpawner : MonoBehaviour
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    
+
     void Start()
     {
         GenerateWave();
@@ -29,7 +40,7 @@ public class WaveSpawner : MonoBehaviour
         //For setting up game states
         //if(Input.GetKeyUp(KeyCode.Return))
         //{
-            
+
         //}
     }
 
@@ -64,7 +75,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue = currWave * 5;
+        waveValue = currWave * 10;
         GenerateEnemies();
 
         spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
@@ -72,8 +83,8 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public void GenerateEnemies()
-    {
-
+    {   
+        
         List<GameObject> generatedEnemies = new List<GameObject>();
         while (waveValue > 0 || generatedEnemies.Count < 50)
         {
@@ -90,15 +101,13 @@ public class WaveSpawner : MonoBehaviour
                 break;
             }
         }
+
+        waveNum++;
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
     }
 
+    
 }
 
-[System.Serializable]
-public class Enemy
-{
-    public GameObject enemyPrefab;
-    public int cost;
-}
+    

@@ -34,5 +34,4 @@ public class Waypoints : MonoBehaviour
 
                 //Destroy(gameObject);
             //}
-    //}
 }
