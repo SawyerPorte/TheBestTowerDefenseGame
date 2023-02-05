@@ -6,9 +6,10 @@ TagManager:
   tags:
   - TurretOne
   - TurretTwo
-  - TurretThree
   - WayPoints
+  - TurretThree
   - SpawnPoint
+  - Path
   layers:
   - Default
   - TransparentFX
