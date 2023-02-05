@@ -24,6 +24,14 @@ public class WaveSpawner : MonoBehaviour
     {
         GenerateWave();
     }
+    private void Update()
+    {
+        //For setting up game states
+        //if(Input.GetKeyUp(KeyCode.Return))
+        //{
+            
+        //}
+    }
 
     void FixedUpdate()
     {

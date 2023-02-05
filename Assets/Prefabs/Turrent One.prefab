@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89877ed24e96a14f886a37ae7dc8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesInRange: []
 --- !u!1 &7950173793230466043
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,3 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284be03435b1bfb4792d400d65759d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7786552401678385633, guid: 45bb1c5cb0f09cb4daf4d236ead30958, type: 3}
+  cooldownTime: 0.5
+  bulletSpeed: 12000

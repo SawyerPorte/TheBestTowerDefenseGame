@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 1733310727625432848}
+  health: 4
   waypoints:
   - {fileID: 7909802605251004254, guid: b30d504ff10c445ffb28bb6b8bb7a22b, type: 3}
   - {fileID: 3261756136088288618, guid: 77fdc99251c954efbb9fc132a990e6de, type: 3}

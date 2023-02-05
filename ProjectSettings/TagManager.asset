@@ -12,6 +12,7 @@ TagManager:
   - Path
   - Range
   - Enemy
+  - Slow
   layers:
   - Default
   - TransparentFX
