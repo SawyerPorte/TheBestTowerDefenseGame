@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe12ed87012bfa49b2be9d8c04bd1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_N: {fileID: 1733310727625432848}
+  Enemy: {fileID: 1733310727625432848}
   waypoints:
   - {fileID: 7909802605251004254, guid: b30d504ff10c445ffb28bb6b8bb7a22b, type: 3}
   - {fileID: 3261756136088288618, guid: 77fdc99251c954efbb9fc132a990e6de, type: 3}
@@ -111,5 +111,6 @@ MonoBehaviour:
   - {fileID: 7780515350286456099, guid: 96feb827c781245c296ce163e622f5fa, type: 3}
   - {fileID: 7372074206168652479, guid: 69355ef642dc64b8498ae053eb3a0a3b, type: 3}
   - {fileID: 4198491170046532503, guid: 4df2500366cfa46c085de42d0f0e8504, type: 3}
-  moveSpeed: 5
+  - {fileID: 983273116178984932, guid: 9146897937c5b4710b3b36eaefb5f913, type: 3}
+  moveSpeed: 1
   wpIndex: 0
