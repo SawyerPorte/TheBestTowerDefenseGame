@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public EnemyBehaviour EBinstance;
+    
 
     [Header("Enemy Prefabs")]
     [SerializeField] GameObject Enemy;
@@ -15,18 +15,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int wpIndex = 0;
 
 
-    void Awake()
-    {
-        if (EBinstance = null)
-        {
-            EBinstance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +46,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void moveSpd()
     {
-
+        moveSpeed = 5;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
