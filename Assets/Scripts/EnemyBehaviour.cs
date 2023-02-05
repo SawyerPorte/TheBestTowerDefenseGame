@@ -20,10 +20,10 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Enemy_Nmove();
+        Enemy_move();
     }
 
-    void Enemy_Nmove()
+    void Enemy_move()
     {
         Enemy.transform.position = Vector2.MoveTowards(transform.position, waypoints[wpIndex].transform.position, moveSpeed * Time.deltaTime);
         if (Enemy.transform.position == waypoints[wpIndex].transform.position)
@@ -36,7 +36,6 @@ public class EnemyBehaviour : MonoBehaviour
 
             Destroy(gameObject);
         }
-        //GameObject EnemyN = Instantiate(Enemy_N, spawnPosition, Quaternion.identity);
     }
 
 }
