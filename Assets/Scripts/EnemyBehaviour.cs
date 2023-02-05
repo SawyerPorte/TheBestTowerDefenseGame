@@ -6,7 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
     [SerializeField] GameObject Enemy;
-
+    [SerializeField] int health;
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 1f;
     public int wpIndex = 0;
@@ -36,6 +36,23 @@ public class EnemyBehaviour : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (health > 0 && collision.gameObject.tag != "Slow") 
+        {
+            health--;
+        }
+        if(health == 0)
+        {
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "Slow" && moveSpeed > 1)
+        {
+            moveSpeed -= 1f;
+        }
+        
     }
 
 }
