@@ -7,32 +7,32 @@ public class Waypoints : MonoBehaviour
 {
     //Tutorial: https://www.youtube.com/watch?v=KsePvOltIKM
 
-    [SerializeField] Transform[] waypoints;
-    [SerializeField] float moveSpeed = 1f;
-    public int wpIndex = 0;
+    //[SerializeField] Transform[] waypoints;
+    //[SerializeField] float moveSpeed = 1f;
+    //public int wpIndex = 0;
 
     private void Start()
     {
-        transform.position = waypoints[wpIndex].transform.position;
+        //transform.position = waypoints[wpIndex].transform.position;
     }
 
     private void Update()
     {
-        movee();
+        //movee();
     }
 
-    void movee()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[wpIndex].transform.position, moveSpeed * Time.deltaTime);
-        if(transform.position == waypoints[wpIndex].transform.position)
-        {
-            wpIndex++;
-        }
-            if(wpIndex == waypoints.Length - 1)
-            {
+    //void movee()
+    //{
+        //transform.position = Vector2.MoveTowards(transform.position, waypoints[wpIndex].transform.position, moveSpeed * Time.deltaTime);
+        //if(transform.position == waypoints[wpIndex].transform.position)
+        //{
+           // wpIndex++;
+        //}
+            //if(wpIndex == waypoints.Length + 2)
+            //{
                 //lives--;
 
-                Destroy(gameObject);
-            }
-    }
+                //Destroy(gameObject);
+            //}
+    //}
 }
