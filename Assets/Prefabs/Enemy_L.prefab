@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: 7780515350286456099, guid: 96feb827c781245c296ce163e622f5fa, type: 3}
   - {fileID: 7372074206168652479, guid: 69355ef642dc64b8498ae053eb3a0a3b, type: 3}
   - {fileID: 4198491170046532503, guid: 4df2500366cfa46c085de42d0f0e8504, type: 3}
-  moveSpeed: 1.25
+  moveSpeed: 0.75
   wpIndex: 0
 --- !u!61 &-8531251963401065252
 BoxCollider2D:
