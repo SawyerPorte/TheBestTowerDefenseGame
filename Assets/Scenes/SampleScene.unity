@@ -556,7 +556,7 @@ MonoBehaviour:
   enemies:
   - enemyPrefab: {fileID: 1733310727625432848, guid: bfb4f18b8958cdc478105c5b19f75d47, type: 3}
     cost: 1
-  currWave: 5
+  currWave: 2
   enemiesToSpawn: []
   spawnLocation: {fileID: 836791450}
   waveDuration: 20
@@ -927,6 +927,10 @@ PrefabInstance:
     - target: {fileID: 1733310727625432851, guid: bfb4f18b8958cdc478105c5b19f75d47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294446978636705427, guid: bfb4f18b8958cdc478105c5b19f75d47, type: 3}
+      propertyPath: moveSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5294446978636705427, guid: bfb4f18b8958cdc478105c5b19f75d47, type: 3}
       propertyPath: waypoints.Array.size
