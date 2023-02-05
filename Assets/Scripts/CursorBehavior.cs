@@ -13,6 +13,7 @@ public class CursorBehavior : MonoBehaviour
     private bool inBoxOne = false;
     private bool inBoxTwo = false;
     private bool inBoxThree = false;
+    private bool onPath = false;
     [SerializeField] GameObject turretOneIcon;
     [SerializeField] GameObject turretTwoIcon;
     [SerializeField] GameObject turretThreeIcon;
@@ -52,6 +53,8 @@ public class CursorBehavior : MonoBehaviour
             SelectTurret();
         }
         //print(inBoxTwo);
+        print(canPlace);
+        //print(onPath);
         
     }
 
@@ -65,10 +68,15 @@ public class CursorBehavior : MonoBehaviour
         inBoxOne = false;
         inBoxTwo = false;
         inBoxThree = false;
-        
+
 
     }
-    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        canPlace = false;
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         canPlace = false;
@@ -88,6 +96,7 @@ public class CursorBehavior : MonoBehaviour
             inBoxThree = true;
 
         }
+       
 
     }
 
