@@ -13,6 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 1f;
     public int wpIndex = 0;
+    private int lives = 5;
     public CursorBehavior cursorBehaviorScript;
     
 
@@ -30,6 +31,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         Enemy_move();
         
+        if (lives < 1)
+        {
+            //Game Over
+        }
 
     }
 
@@ -42,7 +47,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         if (wpIndex == waypoints.Length)
         {
-            //lives--;
+            lives--;
 
             Destroy(gameObject);
         }
