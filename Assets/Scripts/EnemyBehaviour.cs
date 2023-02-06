@@ -13,7 +13,8 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 1f;
     public int wpIndex = 0;
-
+    public CursorBehavior cursorBehaviorScript;
+    
 
     
 
@@ -21,12 +22,15 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         Enemy.transform.position = waypoints[wpIndex].transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Enemy_move();
+        
+
     }
 
     void Enemy_move()
@@ -49,21 +53,25 @@ public class EnemyBehaviour : MonoBehaviour
         moveSpeed = 5;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
+        
+
         if (health > 0 && collision.gameObject.tag != "Slow") 
         {
             health--;
         }
         if(health == 0)
         {
+            GameObject.Find("Cursor").GetComponent<CursorBehavior>().AddMoney();
             Destroy(gameObject);
         }
         if(collision.gameObject.tag == "Slow" && moveSpeed > 1)
         {
             moveSpeed -= 1f;
         }
-        
+
+       
     }
 
 }
