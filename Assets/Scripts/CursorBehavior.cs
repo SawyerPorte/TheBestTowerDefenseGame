@@ -13,6 +13,10 @@ public class CursorBehavior : MonoBehaviour
     private bool inBoxOne = false;
     private bool inBoxTwo = false;
     private bool inBoxThree = false;
+    private float towerOnePrice = 100f;
+    private float towerTwoPrice = 150;
+    private float towerThreePrice = 300f;
+    public float money;
    
     [SerializeField] GameObject turretOneIcon;
     [SerializeField] GameObject turretTwoIcon;
@@ -24,7 +28,7 @@ public class CursorBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        money = 200;
     }
 
     // Update is called once per frame
@@ -55,6 +59,7 @@ public class CursorBehavior : MonoBehaviour
         //print(inBoxTwo);
         //print(canPlace);
         //print(onPath);
+        print(money);
         
     }
 
@@ -143,33 +148,42 @@ public class CursorBehavior : MonoBehaviour
         //print("hit");
     }
 
+    public void AddMoney()
+    {
+        money += 10;
+        print("hit");
+    }
+
     void PlaceTurrent()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if (oneIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree)
+            if (oneIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree && money >= towerOnePrice)
             {
                 Instantiate(turretOne, tempIcon.transform.position, Quaternion.identity);
                 Destroy(tempIcon);
                 
                 oneIsSelected = false;
                 canPlace = false;
+                money -= towerOnePrice;
             }
-            if (twoIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree)
+            if (twoIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree && money >= towerTwoPrice)
             {
                 Instantiate(turretTwo, tempIcon.transform.position, Quaternion.identity);
                 Destroy(tempIcon);
 
                 twoIsSelected = false;
                 canPlace = false;
+                money -= towerTwoPrice;
             }
-            if (threeIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree)
+            if (threeIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree && money >= towerThreePrice)
             {
                 Instantiate(turretThree, tempIcon.transform.position, Quaternion.identity);
                 Destroy(tempIcon);
 
                 threeIsSelected = false;
                 canPlace = false;
+                money -= towerThreePrice;
             }
         }
         
