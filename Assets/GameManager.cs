@@ -6,11 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public GameManager instance;
 
-    [Header("Enemy Prefabs")]
-    [SerializeField] GameObject Enemy_N;
-    [SerializeField] GameObject Enemy_F;
-    [SerializeField] GameObject Enemy_L;
-
     void Awake()
     {
         if (instance = null)
