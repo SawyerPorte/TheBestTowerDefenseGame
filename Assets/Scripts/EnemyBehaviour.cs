@@ -17,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public float maxHealth;
     public int wpIndex = 0;
+    private int lives = 5;
     public CursorBehavior cursorBehaviorScript;
 
     public Image HealthBar;
@@ -44,6 +45,10 @@ public class EnemyBehaviour : MonoBehaviour
         //if (Enemy.transform.position.x == 11.5f)
         
         
+        if (lives < 1)
+        {
+            //Game Over
+        }
 
     }
 
