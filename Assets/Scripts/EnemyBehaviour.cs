@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Bson;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -10,29 +11,40 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Enemy Prefabs")]
     [SerializeField] GameObject Enemy;
-    [SerializeField] int health;
+    [SerializeField] float health;
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 1f;
 
-    public int maxHealth;
+    public float maxHealth;
     public int wpIndex = 0;
     public CursorBehavior cursorBehaviorScript;
 
     public Image HealthBar;
-    
+    private int lives = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         Enemy.transform.position = waypoints[wpIndex].transform.position;
-        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
+
         HealthBar.fillAmount = health / maxHealth;
+        //print(lives);
+        Debug.Log(lives);
         Enemy_move();
+
+        //if (Enemy.transform.position.x == 11.5f)
+        
+        
+
     }
 
     void Enemy_move()
@@ -44,9 +56,8 @@ public class EnemyBehaviour : MonoBehaviour
         }
         if (wpIndex == waypoints.Length)
         {
-            //lives--;
-
             Destroy(gameObject);
+            lives -= 1;
         }
     }
 
