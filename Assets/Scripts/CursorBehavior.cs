@@ -59,7 +59,7 @@ public class CursorBehavior : MonoBehaviour
         //print(inBoxTwo);
         //print(canPlace);
         //print(onPath);
-        print(money);
+        //print(money);
         
     }
 
