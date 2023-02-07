@@ -20,25 +20,22 @@ public class EnemyBehaviour : MonoBehaviour
     public CursorBehavior cursorBehaviorScript;
 
     public Image HealthBar;
-    private int lives = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         Enemy.transform.position = waypoints[wpIndex].transform.position;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (lives <= 0)
-        {
-            SceneManager.LoadScene(2);
-        }
+        
 
         HealthBar.fillAmount = health / maxHealth;
         //print(lives);
-        Debug.Log(lives);
+        //Debug.Log(lives);
         Enemy_move();
 
         //if (Enemy.transform.position.x == 11.5f)
@@ -56,8 +53,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
         if (wpIndex == waypoints.Length)
         {
+            GameObject.Find("Cursor").GetComponent<CursorBehavior>().TakeDamage();
             Destroy(gameObject);
-            lives -= 1;
+            
         }
     }
 
