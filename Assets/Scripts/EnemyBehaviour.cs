@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Bson;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -12,25 +13,26 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] int health;
     [SerializeField] Transform[] waypoints;
     [SerializeField] float moveSpeed = 1f;
+
+    public int maxHealth;
     public int wpIndex = 0;
     public CursorBehavior cursorBehaviorScript;
-    
 
+    public Image HealthBar;
     
 
     // Start is called before the first frame update
     void Start()
     {
         Enemy.transform.position = waypoints[wpIndex].transform.position;
-        
+        health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        HealthBar.fillAmount = health / maxHealth;
         Enemy_move();
-        
-
     }
 
     void Enemy_move()
