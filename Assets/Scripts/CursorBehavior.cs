@@ -38,7 +38,7 @@ public class CursorBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        money = 200;
+        money = 250;
     }
 
     // Update is called once per frame

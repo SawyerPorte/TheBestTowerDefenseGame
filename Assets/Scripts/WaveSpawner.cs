@@ -88,7 +88,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue = currWave * 10;
+        waveValue = currWave * 15;
         GenerateEnemies();
 
         spawnInterval = 2; // gives a fixed time between each enemies
