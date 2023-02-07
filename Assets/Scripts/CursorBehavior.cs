@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class CursorBehavior : MonoBehaviour
 {
@@ -17,6 +20,7 @@ public class CursorBehavior : MonoBehaviour
     private float towerTwoPrice = 150;
     private float towerThreePrice = 300f;
     public float money;
+    public int lives = 5;
    
     [SerializeField] GameObject turretOneIcon;
     [SerializeField] GameObject turretTwoIcon;
@@ -24,6 +28,12 @@ public class CursorBehavior : MonoBehaviour
     [SerializeField] GameObject turretOne;
     [SerializeField] GameObject turretTwo;
     [SerializeField] GameObject turretThree;
+
+    [SerializeField] AudioSource towerPlace;
+
+
+    [SerializeField] Text moneyText;
+
     private GameObject tempIcon;
     // Start is called before the first frame update
     void Start()
@@ -48,6 +58,7 @@ public class CursorBehavior : MonoBehaviour
             if (canPlace)
             {
                 PlaceTurrent();
+                
             }
             
             
@@ -59,8 +70,13 @@ public class CursorBehavior : MonoBehaviour
         //print(inBoxTwo);
         //print(canPlace);
         //print(onPath);
-        //print(money);
-        
+        print(lives);
+        moneyText.text = "Money: " + money;
+
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     
@@ -153,6 +169,10 @@ public class CursorBehavior : MonoBehaviour
         money += 10;
         print("hit");
     }
+    public void TakeDamage()
+    {
+        lives -= 1;
+    }
 
     void PlaceTurrent()
     {
@@ -166,6 +186,7 @@ public class CursorBehavior : MonoBehaviour
                 oneIsSelected = false;
                 canPlace = false;
                 money -= towerOnePrice;
+                towerPlace.Play();
             }
             if (twoIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree && money >= towerTwoPrice)
             {
@@ -175,6 +196,7 @@ public class CursorBehavior : MonoBehaviour
                 twoIsSelected = false;
                 canPlace = false;
                 money -= towerTwoPrice;
+                towerPlace.Play();
             }
             if (threeIsSelected && canPlace && !inBoxOne && !inBoxTwo && !inBoxThree && money >= towerThreePrice)
             {
@@ -184,6 +206,7 @@ public class CursorBehavior : MonoBehaviour
                 threeIsSelected = false;
                 canPlace = false;
                 money -= towerThreePrice;
+                towerPlace.Play();
             }
         }
         

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Enemy
@@ -28,6 +29,9 @@ public class WaveSpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
 
+    [SerializeField] AudioSource newWave;
+    [SerializeField] Text waveNumber;
+
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
     
@@ -35,6 +39,7 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         GenerateWave();
+        newWave.Play();
     }
     private void Update()
     {
@@ -44,6 +49,8 @@ public class WaveSpawner : MonoBehaviour
             if (spawnedEnemies[i] == null)
                 spawnedEnemies.RemoveAt(i);
         }
+
+        waveNumber.text = "Wave: " + waveNum.ToString();
     }
 
     void FixedUpdate()
@@ -73,7 +80,8 @@ public class WaveSpawner : MonoBehaviour
         if (waveTimer <= 0 && spawnedEnemies.Count <= 0)
         {
             currWave++;
-            GenerateWave();      
+            GenerateWave();
+            newWave.Play();
         }
         
     }
